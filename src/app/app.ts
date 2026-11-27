@@ -12,7 +12,7 @@ import { Notas } from './services/notas';
 })
 export class App {
   protected readonly titulo: string = 'Mis notas del curso 🎓';
-  protected readonly notas = inject(Notas1);
+  protected readonly notas = inject(Notas);
 
   guardar(n: NuevaNota): void {
     this.notas.agregar(n.asignatura, n.valor);
