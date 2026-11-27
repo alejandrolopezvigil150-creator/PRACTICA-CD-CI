@@ -35,4 +35,25 @@ export class Notas {
   eliminar(id: number): void {
     this._notas.update((lista) => lista.filter((n) => n.id !== id));
   }
+
+  // Métodos nuevos SIN tests: bajan la cobertura por debajo del umbral
+  notaMasAlta(): Nota | null {
+    const lista = this._notas();
+    if (lista.length === 0) {
+      return null;
+    }
+    return lista.reduce((max, n) => (n.valor > max.valor ? n : max));
+  }
+
+  buscar(texto: string): Nota[] {
+    const q = texto.trim().toLowerCase();
+    if (!q) {
+      return this._notas();
+    }
+    return this._notas().filter((n) => n.asignatura.toLowerCase().includes(q));
+  }
+
+  suspensas(): number {
+    return this._notas().length - this.aprobadas();
+  }
 }
