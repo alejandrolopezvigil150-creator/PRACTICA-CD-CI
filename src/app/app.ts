@@ -11,8 +11,7 @@ import { Notas } from './services/notas';
   styleUrl: './app.css'
 })
 export class App {
-  // Error a propósito: se asigna un texto a una propiedad de tipo number
-  protected readonly titulo: number = 'Mis notas';
+  protected readonly titulo: string = 'Mis notas del curso 🎓';
   protected readonly notas = inject(Notas);
 
   guardar(n: NuevaNota): void {
