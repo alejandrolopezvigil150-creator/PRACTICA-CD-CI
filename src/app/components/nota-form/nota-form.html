@@ -1,0 +1,23 @@
+<form class="nota-form" (submit)="$event.preventDefault(); guardar()">
+  <input
+    class="asignatura"
+    type="text"
+    placeholder="Asignatura"
+    aria-label="Asignatura"
+    [value]="asignatura()"
+    (input)="asignatura.set($any($event.target).value)"
+  />
+  <input
+    class="valor"
+    type="text"
+    inputmode="decimal"
+    placeholder="Nota"
+    aria-label="Nota"
+    [value]="valor()"
+    (input)="valor.set($any($event.target).value)"
+  />
+  <button type="submit">Guardar</button>
+</form>
+@if (aviso()) {
+  <p class="aviso" role="alert">{{ aviso() }}</p>
+}

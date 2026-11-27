@@ -1,0 +1,15 @@
+@if (notas().length === 0) {
+  <p class="sin-notas">Aún no hay notas registradas.</p>
+} @else {
+  <ul class="lista">
+    @for (n of notas(); track n.id) {
+      <li [class.suspenso]="n.valor < 5">
+        <span class="asig">{{ n.asignatura }}</span>
+        <span class="valor">{{ n.valor }}</span>
+        <span class="estado">{{ estado(n.valor) }}</span>
+        <button class="borrar" type="button" (click)="borrar.emit(n.id)" aria-label="Borrar nota">✕</button>
+      </li>
+    }
+  </ul>
+}
+<p class="media">Media: <strong>{{ media() }}</strong></p>

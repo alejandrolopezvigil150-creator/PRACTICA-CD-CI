@@ -1,0 +1,9 @@
+<main class="contenedor">
+  <h1>{{ titulo }}</h1>
+  <p class="info">Práctica CI/CD · Alejandro López Vigil · 2º DAW</p>
+  <section class="caja">
+    <app-nota-form (nuevaNota)="guardar($event)" />
+    <p class="resumen">Aprobadas: <strong>{{ notas.aprobadas() }}</strong> de {{ notas.notas().length }}</p>
+    <app-tabla-notas [notas]="notas.notas()" [media]="notas.media()" (borrar)="notas.eliminar($event)" />
+  </section>
+</main>
