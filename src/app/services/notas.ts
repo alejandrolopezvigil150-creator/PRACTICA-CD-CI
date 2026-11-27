@@ -17,8 +17,8 @@ export class Notas {
     if (lista.length === 0) {
       return 0;
     }
-    const suma = lista.reduce((acc, n) => acc + n.valor, 0);
-    return Math.round((suma / lista.length) * 100) / 100;
+    // Bug a propósito: ya no se redondea a dos decimales
+    return lista.reduce((acc, n) => acc + n.valor, 0) / lista.length;
   });
   readonly aprobadas = computed(() => this._notas().filter((n) => n.valor >= 5).length);
 
