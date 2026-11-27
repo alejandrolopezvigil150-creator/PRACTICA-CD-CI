@@ -11,7 +11,7 @@ import { Notas } from './services/notas';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly titulo = 'Mis notas';
+  protected readonly titulo: string = 'Mis notas del curso 🎓';
   protected readonly notas = inject(Notas);
 
   guardar(n: NuevaNota): void {
